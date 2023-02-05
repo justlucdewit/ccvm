@@ -17,13 +17,14 @@ void ccvm_stack_free(ccb_stack_t* stack) {
     free(stack);
 }
 
-void ccvm_stack_pop(ccb_stack_t* stack) {
+uint32_t ccvm_stack_pop(ccb_stack_t* stack) {
     if (stack->size == 0) {
-        return;
+        return 0;
     }
 
-    stack->size--;
     stack->stack_pointer--;
+    stack->size--;
+    return stack->data[stack->stack_pointer];
 }
 
 void ccvm_stack_push(ccb_stack_t* stack, uint32_t value) {
@@ -31,7 +32,7 @@ void ccvm_stack_push(ccb_stack_t* stack, uint32_t value) {
         stack->capacity *= 2;
         stack->data = realloc(stack->data, sizeof(uint32_t) * stack->capacity);
     }
-
+    
     stack->data[stack->stack_pointer] = value;
     stack->stack_pointer++;
     stack->size++;

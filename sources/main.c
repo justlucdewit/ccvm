@@ -16,7 +16,6 @@ static struct
     char* f;
 } arg = {0};
 
-
 static cmdp_command_st g_command = {
     .doc = "CC Virtual Machine, Bytecode interpreter for .ccb files.\nUsage: ccvm -f test.ccb\n\n",
     .options =
@@ -33,7 +32,6 @@ static cmdp_command_st g_command = {
 int main(int argc, char **argv) {
     return cmdp_run(argc - 1, argv + 1, &g_command, NULL);
 }
-
 
 static cmdp_action_t callback_function(cmdp_process_param_st *params) {
     if (params->opts == 0 || arg.h || arg.f == NULL)

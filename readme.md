@@ -13,3 +13,6 @@ To compile this project, run `make` command in root directory
 0x00: STP
 0x10: MOV reg lit
 0x11: MOV reg reg
+0x12: PSH lit
+0x13: PSH reg
+0x14: POP reg

@@ -19,6 +19,18 @@ void ccvm_ccb_instruction_mov_lit_to_reg(ccvm_vm_t* vm);
 /// @param vm virtual machine struct
 void ccvm_ccb_instruction_mov_reg_to_reg(ccvm_vm_t* vm);
 
+/// @brief Opcode 0x12 Push literal to stack
+/// @param vm virtual machine struct
+void ccvm_ccb_instruction_push_lit_to_stack(ccvm_vm_t* vm);
+
+/// @brief Opcode 0x13 Push register to stack
+/// @param vm virtual machine struct
+void ccvm_ccb_instruction_push_reg_to_stack(ccvm_vm_t* vm);
+
+/// @brief Opcode 0x14 Pop from stack to register
+/// @param vm virtual machine struct
+void ccvm_ccb_instruction_pop_stack_to_reg(ccvm_vm_t* vm);
+
 /// The list of instructions
 void (*ccvm_ccb_instructions[256])(ccvm_vm_t* vm);
 

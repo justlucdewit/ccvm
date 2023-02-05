@@ -7,6 +7,7 @@
 #include <ccb_loader.h>
 #include <ccb_instructions.h>
 #include <ccb_vm.h>
+#include <ccb_stack.h>
 
 /// Runs the bytecode in the given binary
 /// \param binary The binary to run

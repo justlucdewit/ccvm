@@ -9,6 +9,12 @@ void ccvm_print_debug(ccvm_vm_t* vm) {
     for (int i = 0; i < 8; i++) {
         printf("  R%d: 0x%08X\n", i, vm->registers[i]);
     }
+
+    printf("Stack:\n");
+    for (int i = 0; i <= vm->stack->size; i++) {
+        uint32_t val = ccvm_stack_pop(vm->stack);
+        printf("  - 0x%.8X (%d)\n", val, val);
+    }
 }
 
 void ccvm_run_bytecode(ccvm_binary_t* binary, bool debug) {
@@ -20,6 +26,8 @@ void ccvm_run_bytecode(ccvm_binary_t* binary, bool debug) {
     
     // Reset the registers
     memset(vm.registers, 0, sizeof(vm.registers));
+
+    vm.stack = ccvm_stack_init();
     
     // Main loop
     while (vm.is_running) {

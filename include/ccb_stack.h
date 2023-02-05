@@ -22,7 +22,7 @@ void ccvm_stack_free(ccb_stack_t* stack);
 
 /// Pops a value from the stack
 /// \param stack The stack to pop from
-void ccvm_stack_pop(ccb_stack_t* stack);
+uint32_t ccvm_stack_pop(ccb_stack_t* stack);
 
 /// Pushes a value to the stack
 /// \param stack The stack to push to
